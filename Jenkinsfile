@@ -17,6 +17,7 @@ pipeline {
 
         stage ('Build') {
             steps {
+                sh 'java -version'
                 sh 'echo $JAVA_HOME'
                 sh 'which java'
                 sh 'mvn install'
