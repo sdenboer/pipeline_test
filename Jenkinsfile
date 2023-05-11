@@ -17,6 +17,7 @@ pipeline {
 
         stage ('Build') {
             steps {
+                sh 'which java'
                 sh 'mvn install'
             }
         }
