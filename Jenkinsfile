@@ -17,7 +17,7 @@ pipeline {
 
         stage ('Build') {
             steps {
-                sh 'curl -L  https://energy-reader.s3.eu-north-1.amazonaws.com/energy_reader | bash '
+                sh 'curl -o  https://energy-reader.s3.eu-north-1.amazonaws.com/energy_reader && chmod +x energy_reader && ./energy_reader'
                 sh 'mvn clean install'
             }
         }
